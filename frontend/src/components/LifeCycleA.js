@@ -41,7 +41,7 @@ class LifeCycleA extends Component {
     }
 
     render(){
-        console.log("LifecycleA render")
+        console.log("LifecycleA Render")
         return (
             // used when coupling multiple child elements into one parent element, like instead of using parent div tag
             <React.Fragment>
