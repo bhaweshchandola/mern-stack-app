@@ -44,6 +44,8 @@ class LifeCycleA extends Component {
         console.log("LifecycleA Render")
         return (
             // used when coupling multiple child elements into one parent element, like instead of using parent div tag
+            // instead of using react.fragments empty opening and closing brackets can be used also
+            // like <> </> but this accept the key prop
             <React.Fragment>
                 <div>Life CycleA</div>
                 <button onClick={this.changeState}>Change State</button>

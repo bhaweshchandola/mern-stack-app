@@ -4,6 +4,8 @@ import axios from 'axios'
 class PostForm extends Component {
     constructor(props) {
         super(props)
+        
+        this.inputRef = React.createRef()
 
         this.state = {
             name: '',
@@ -28,13 +30,18 @@ class PostForm extends Component {
             console.log(err)
         })
     }
+
+    componentDidMount(){
+        // to focus on the input element when page loades
+        this.inputRef.current.focus()
+    }
     render() {
         const { name, phone_number, address } = this.state
         return (
             <div>
                 <form onSubmit={this.submitHandler}>
                     <div>
-                        <input type="text" name="name" value={name} onChange={this.changeHandler} />
+                        <input type="text" ref={this.inputRef} name="name" value={name} onChange={this.changeHandler} />
                     </div>
                     <div>
                         <input type="text" name="phone_number" value={phone_number} onChange={this.changeHandler} />
