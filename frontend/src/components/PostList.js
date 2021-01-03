@@ -35,7 +35,8 @@ class PostList extends Component {
         }
 
         return (
-            <div className={`${className} font-xl`}>
+            // <div className={`${className} font-xl`}>
+            <div className="col-md-3">
                 <ol className="list-group list-group-flush">
                 {
                     contactLists.length ?

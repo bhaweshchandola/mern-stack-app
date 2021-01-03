@@ -9,7 +9,8 @@ class App extends Component {
   
   render(){
     return (
-      <div className="App">
+      <div className="">
+        <h1>Add Contacts</h1>
         <PostForm/>
         {/* <PostList className="true"/> */}
         {/* <LifeCycleA /> */}
