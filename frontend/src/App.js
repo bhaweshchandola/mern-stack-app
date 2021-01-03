@@ -11,8 +11,8 @@ class App extends Component {
     return (
       <div className="App">
         <PostForm/>
-        <PostList className="true"/>
-        <LifeCycleA />
+        {/* <PostList className="true"/> */}
+        {/* <LifeCycleA /> */}
       </div>
     )
   }

@@ -13,19 +13,21 @@ class PostList extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/contacts')
-            .then(response => {
-                console.log(response)
-                this.setState({ posts: response.data })
-            })
-            .catch(error => {
-                console.log(error)
-                this.setState({errMsg: "error getting the data"})
-            })
+        // axios.get('http://localhost:5000/contacts')
+        //     .then(response => {
+        //         console.log(response)
+        //         this.setState({ posts: response.data })
+        //     })
+        //     .catch(error => {
+        //         console.log(error)
+        //         this.setState({errMsg: "error getting the data"})
+        //     })
     }
 
     render() {
-        const { posts, errMsg } = this.state
+        const contactLists = this.props.data
+        const errMsg = this.props.errMsg
+        console.log(contactLists)
         const className = this.props.className ? 'primary': ''
         const inlineStyle = {
             fontSize: '40px',
@@ -36,8 +38,8 @@ class PostList extends Component {
             <div className={`${className} font-xl`}>
                 <ol>
                 {
-                    posts.length ?
-                    posts.map(post => <li key={post._id}> {post.name} - {post.phone_number} </li>) :
+                    contactLists.length ?
+                    contactLists.map(post => <li key={post._id}> {post.name} - {post.phone_number} </li>) :
                     null
                 }
                 </ol>
