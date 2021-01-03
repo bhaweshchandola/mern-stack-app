@@ -36,10 +36,10 @@ class PostList extends Component {
 
         return (
             <div className={`${className} font-xl`}>
-                <ol>
+                <ol className="list-group list-group-flush">
                 {
                     contactLists.length ?
-                    contactLists.map(post => <li key={post._id}> {post.name} - {post.phone_number} </li>) :
+                    contactLists.map(post => <li className="list-group-item" key={post._id}> {post.name} - {post.phone_number} </li>) :
                     null
                 }
                 </ol>
