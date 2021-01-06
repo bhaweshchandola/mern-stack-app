@@ -1,1 +1,1 @@
-# contacts-manager
+# MERN-stack App
