@@ -16,7 +16,6 @@ class Fortnite extends Component {
         );
 
         const items = await data.json();
-        console.log(items.data);
         this.setState({ items: items.data })
     }
 
@@ -27,20 +26,32 @@ class Fortnite extends Component {
 
     render() {
         const items = this.state.items;
-        console.log(items)
-        // console.log(items);
         return (
-            <div>
-                {
-
-                    items.map(item => (
-                        <h3 key={item.itemId}>
-                            <Link to={`/fortnite/${item.itemId}`}>
-                            {item.item.name}
-                            </Link>
-                        </h3>))
-                }
+            <div >
+                <table class="table table-hover table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Rarity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            items.map((item, index) => (
+                                <tr>
+                                        <td>{index + 1}</td>
+                                        <td><Link to={`/fortnite/${item.itemId}`}>{item.item.name}</Link></td>
+                                        <td>{item.item.description}</td>
+                                        <td>{item.item.rarity}</td>
+                                </tr>
+                            ))
+                        }
+                    </tbody>
+                </table>
             </div>
+
         );
     }
 }

@@ -20,29 +20,33 @@ class FortniteItem extends Component {
         );
 
         const item = await data.json();
-        console.log(item.data);
         this.setState({ item: item.data })
     }
 
     componentDidMount() {
-        console.log(this.props.match)
         this.fetchItems()
     }
 
     render() {
         const item = this.state.item;
-        console.log(item)
         const imgStyle = {
-            'height': '400px'
+            'width': '18rem',
+
+        }
+        const divStyle = {
+            'top': '40px',
+
         }
         // console.log(items);
         return (
-            <div>
-                <img style={imgStyle} src={item.item.images.icon}/>
-                <h3 key={item.itemId}>
-                    {item.item.name}
-                </h3>
-
+            <div className="col d-flex justify-content-center" style={divStyle}>
+                <div className="card" style={imgStyle}>
+                    <img class="card-img-top" src={item.item.images.icon} alt="Card image cap" />
+                    <div class="card-body">
+                        <h5 class="card-title">{item.item.name}</h5>
+                        <p class="card-text">{item.item.description}</p>
+                    </div>
+                </div>
             </div>
         );
     }
