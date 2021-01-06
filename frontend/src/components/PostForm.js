@@ -62,15 +62,15 @@ class PostForm extends Component {
             <div className="card">
                 <form onSubmit={this.submitHandler}>
                     <div className="col-md-3">
-                        <label for="exampleInputName" className="form-label">Name</label>
+                        <label className="form-label">Name</label>
                         <input type="text" ref={this.inputRef} className="form-control" name="name" value={name} onChange={this.changeHandler} />
                     </div>
                     <div className="col-md-3">
-                        <label for="exampleInputNumber" className="form-label">Phone Number</label>
+                        <label className="form-label">Phone Number</label>
                         <input type="text" name="phone_number" className="form-control" value={phone_number} onChange={this.changeHandler} />
                     </div>
                     <div className="col-md-3">
-                        <label for="exampleInputAddress" className="form-label">Address</label>
+                        <label className="form-label">Address</label>
                         <input type="text" name="address" className="form-control" value={address} onChange={this.changeHandler} />
                     </div>
                     <button type="submit" className="btn btn-primary">Submit</button>
