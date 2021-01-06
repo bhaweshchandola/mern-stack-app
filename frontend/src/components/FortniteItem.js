@@ -41,10 +41,10 @@ class FortniteItem extends Component {
         return (
             <div className="col d-flex justify-content-center" style={divStyle}>
                 <div className="card" style={imgStyle}>
-                    <img class="card-img-top" src={item.item.images.icon} alt="Card image cap" />
-                    <div class="card-body">
-                        <h5 class="card-title">{item.item.name}</h5>
-                        <p class="card-text">{item.item.description}</p>
+                    <img className="card-img-top" src={item.item.images.icon} alt="Card image cap" />
+                    <div className="card-body">
+                        <h5 className="card-title">{item.item.name}</h5>
+                        <p className="card-text">{item.item.description}</p>
                     </div>
                 </div>
             </div>

@@ -28,7 +28,7 @@ class Fortnite extends Component {
         const items = this.state.items;
         return (
             <div >
-                <table class="table table-hover table-dark">
+                <table className="table table-hover table-dark">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
