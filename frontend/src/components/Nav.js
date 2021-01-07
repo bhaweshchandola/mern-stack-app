@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import {useSelector} from 'react-redux';
 
-class Nav extends Component {
-    render() {
+function Nav() {
+    
         const navStyle = {
             color: 'white'
         }
+        // const counter = useSelector(state => state.counter);
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <span className="navbar-brand" href="#">Navbar</span>
@@ -36,6 +38,6 @@ class Nav extends Component {
 
         );
     }
-}
+
 
 export default Nav;

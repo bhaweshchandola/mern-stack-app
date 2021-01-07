@@ -52,18 +52,22 @@ class PostForm extends Component {
 
     componentDidMount() {
         // to focus on the input element when page loades
-        this.inputRef.current.focus()
+        // this.inputRef.current.focus()
         this.getData()
     }
     render() {
         // this.getData()
         const { name, phone_number, address, responseData, errMsg } = this.state
+        const submitStyle = {
+            'top':'10px'
+        }
         return (
             <div className="card">
                 <form onSubmit={this.submitHandler}>
                     <div className="col-md-3">
                         <label className="form-label">Name</label>
-                        <input type="text" ref={this.inputRef} className="form-control" name="name" value={name} onChange={this.changeHandler} />
+                        {/* <input type="text" ref={this.inputRef} className="form-control" name="name" value={name} onChange={this.changeHandler} /> */}
+                        <input type="text" className="form-control" name="name" value={name} onChange={this.changeHandler} />
                     </div>
                     <div className="col-md-3">
                         <label className="form-label">Phone Number</label>
@@ -73,7 +77,9 @@ class PostForm extends Component {
                         <label className="form-label">Address</label>
                         <input type="text" name="address" className="form-control" value={address} onChange={this.changeHandler} />
                     </div>
-                    <button type="submit" className="btn btn-primary">Submit</button>
+                    <div className="col-md-3" style={submitStyle} >
+                        <button type="submit" className="btn btn-primary">Add Contact</button>
+                    </div>
                 </form>
                 <div>
                     <PostList data={responseData} errMsg={errMsg} />

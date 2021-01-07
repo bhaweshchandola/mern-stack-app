@@ -40,7 +40,7 @@ class Fortnite extends Component {
                     <tbody>
                         {
                             items.map((item, index) => (
-                                <tr>
+                                <tr key={item.itemId}>
                                         <td>{index + 1}</td>
                                         <td><Link to={`/fortnite/${item.itemId}`}>{item.item.name}</Link></td>
                                         <td>{item.item.description}</td>
