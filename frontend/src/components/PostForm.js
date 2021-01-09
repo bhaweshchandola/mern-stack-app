@@ -59,29 +59,31 @@ class PostForm extends Component {
         // this.getData()
         const { name, phone_number, address, responseData, errMsg } = this.state
         const submitStyle = {
-            'top':'10px'
+            'top': '10px'
         }
         return (
-            <div className="card">
-                <form onSubmit={this.submitHandler}>
-                    <div className="col-md-3">
-                        <label className="form-label">Name</label>
-                        {/* <input type="text" ref={this.inputRef} className="form-control" name="name" value={name} onChange={this.changeHandler} /> */}
-                        <input type="text" className="form-control" name="name" value={name} onChange={this.changeHandler} />
-                    </div>
-                    <div className="col-md-3">
-                        <label className="form-label">Phone Number</label>
-                        <input type="text" name="phone_number" className="form-control" value={phone_number} onChange={this.changeHandler} />
-                    </div>
-                    <div className="col-md-3">
-                        <label className="form-label">Address</label>
-                        <input type="text" name="address" className="form-control" value={address} onChange={this.changeHandler} />
-                    </div>
-                    <div className="col-md-3" style={submitStyle} >
-                        <button type="submit" className="btn btn-primary">Add Contact</button>
-                    </div>
-                </form>
-                <div>
+            <div className="container-fluid">
+                <div className="card">
+                    <form onSubmit={this.submitHandler}>
+                        <div className="col-md-3">
+                            <label className="form-label">Name</label>
+                            {/* <input type="text" ref={this.inputRef} className="form-control" name="name" value={name} onChange={this.changeHandler} /> */}
+                            <input type="text" className="form-control" name="name" value={name} onChange={this.changeHandler} />
+                        </div>
+                        <div className="col-md-3">
+                            <label className="form-label">Phone Number</label>
+                            <input type="text" name="phone_number" className="form-control" value={phone_number} onChange={this.changeHandler} />
+                        </div>
+                        <div className="col-md-3">
+                            <label className="form-label">Address</label>
+                            <input type="text" name="address" className="form-control" value={address} onChange={this.changeHandler} />
+                        </div>
+                        <div className="col-md-3" >
+                            <button type="submit" className="btn btn-primary">Add Contact</button>
+                        </div>
+                    </form>
+                </div>
+                <div className="card" style={submitStyle}>
                     <PostList data={responseData} errMsg={errMsg} />
                 </div>
             </div>
