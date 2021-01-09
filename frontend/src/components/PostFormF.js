@@ -50,11 +50,15 @@ function PostFormF() {
             })
     }
 
-    // second param in useeffect restrict it from calling this method again and again, as it checks the param with its previous value to see if it is updated then only it executes the useeffect method
+    // second param in useeffect restrict it from calling this method again and again, as it checks the param with its previous value to see if it is updated then only it executes the useeffect method. ******* if like class component this needs to be called only once like componentdidmount then just pass an empty array
+    // useEffect(() => {
+    //     getData()
+    //     console.log("use effect called")
+    // }, [count])
     useEffect(() => {
         getData()
         console.log("use effect called")
-    }, [count])
+    }, [])
 
     return (
         <div className="container-fluid">
