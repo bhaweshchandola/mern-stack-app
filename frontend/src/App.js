@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Fortnite from './components/Fortnite';
 import FortniteItem from './components/FortniteItem';
 import PostFormF from './components/PostFormF';
+import FormValidations from './components/FormValidations';
 
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
             <Route path="/contact-manager" component={PostFormF} />
             <Route path="/fortnite" exact component={Fortnite} />
             <Route path="/fortnite/:id" exact component={FortniteItem} />
+            <Route path="/validation_form" component={FormValidations} />
             {/* <FortniteItem/> */}
             {/* <Fortnite/> */}
             {/* <PostList className="true"/> */}
