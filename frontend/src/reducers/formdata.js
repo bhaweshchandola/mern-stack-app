@@ -14,3 +14,5 @@ const formReducer = (state=intiState, action) => {
             return state
     }
 }
+
+export default formReducer;

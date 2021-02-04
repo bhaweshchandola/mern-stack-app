@@ -1,5 +1,5 @@
 import React from 'react';
-import { increment } from '../actions/index';
+import { increment, user_add } from '../actions/index';
 import { useSelector, useDispatch } from 'react-redux'
 // import '../cover.css'
 function HomePage() {

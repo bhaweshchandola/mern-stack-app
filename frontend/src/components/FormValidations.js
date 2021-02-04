@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from 'axios';
+import {useDispatch, useSelector} from 'react-redux'
+import {increment, userAction} from '../actions/index'
 
 function FormValidations(){
     const [user, setUser] = useState({
@@ -8,7 +10,10 @@ function FormValidations(){
         phone: ''
     })
 
-    const [users, setUsers] = useState([])
+    const [users, setUsers] = useState([]);
+    const dispatch = useDispatch();
+
+    const redux_user = useSelector(state => state.users)
 
     var changeHandler = e => {
         // console.log(e.target.name, e.target.value);
@@ -17,7 +22,10 @@ function FormValidations(){
 
     var submitHandler = e => {
         e.preventDefault();
-        setUsers([...users, user])
+        // setUsers([...users, user])
+        dispatch(userAction(user))
+        console.log("dispatch done");
+        console.log(redux_user);
         setUser({
             name: '',
             email: '',
@@ -51,8 +59,8 @@ function FormValidations(){
         <div className="col-md-3">
                 <ol className="list-group list-group-flush">
                 {
-                    users.length ?
-                    users.map(people => <li className="list-group-item" key={people.phone}> {people.name} - {people.email} </li>) :
+                    redux_user.length ?
+                    redux_user.map(people => <li className="list-group-item" key={people.phone}> {people.name} - {people.email} </li>) :
                     null
                 }
                 </ol>
