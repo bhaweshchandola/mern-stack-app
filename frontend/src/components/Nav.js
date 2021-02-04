@@ -32,6 +32,11 @@ function Nav() {
                                 <span className="nav-link" href="#">Fortnite</span>
                             </li>
                         </Link>
+                        <Link style={navStyle} to="/validation_form">
+                            <li className="nav-item">
+                                <span className="nav-link" href="#">User (Redux)</span>
+                            </li>
+                        </Link>
                     </ul>
                 </div>
             </nav>
