@@ -1,7 +1,10 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, lazy, Suspense} from "react";
 import axios from 'axios';
 import {useDispatch, useSelector} from 'react-redux'
 import {increment, userAction} from '../actions/index'
+// import LazyComponent from "./LazyComponent";
+
+const LazyComponent = lazy(() => import('./LazyComponent'))
 
 function FormValidations(){
     const [user, setUser] = useState({
@@ -35,6 +38,9 @@ function FormValidations(){
 
     return (
         <div className="container-fluid">
+            <Suspense fallback={<div>Loading ....... </div>}>
+                <LazyComponent/>
+            </Suspense>
         <div className="card">
             <form onSubmit={submitHandler}>
                 <div className="col-md-3">
