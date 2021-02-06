@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {useSelector} from 'react-redux';
+import Hero from './Hero';
 
 function Nav() {
     
@@ -35,6 +36,12 @@ function Nav() {
                         <Link style={navStyle} to="/validation_form">
                             <li className="nav-item">
                                 <span className="nav-link" href="#">User (Redux)</span>
+                            </li>
+                        </Link>
+                        
+                        <Link style={navStyle} to="/hero">
+                            <li className="nav-item">
+                                <span className="nav-link" href="#">Error Boundary</span>
                             </li>
                         </Link>
                     </ul>
