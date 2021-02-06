@@ -44,6 +44,11 @@ function Nav() {
                                 <span className="nav-link" href="#">Error Boundary</span>
                             </li>
                         </Link>
+                        <Link style={navStyle} to="/chat">
+                        <li className="nav-item">
+                                <span className="nav-link" href="#">Chat</span>
+                            </li>
+                        </Link>
                     </ul>
                 </div>
             </nav>

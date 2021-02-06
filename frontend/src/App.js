@@ -9,6 +9,7 @@ import FortniteItem from './components/FortniteItem';
 import PostFormF from './components/PostFormF';
 import FormValidations from './components/FormValidations';
 import Hero from './components/Hero';
+import Chat from './components/Chat';
 
 
 class App extends Component {
@@ -25,6 +26,7 @@ class App extends Component {
             <Route path="/fortnite/:id" exact component={FortniteItem} />
             <Route path="/validation_form" component={FormValidations} />
             <Route path="/hero" component={Hero} />
+            <Route path="/chat" component={Chat} />
             
             {/* <FortniteItem/> */}
             {/* <Fortnite/> */}
