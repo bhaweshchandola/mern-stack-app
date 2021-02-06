@@ -9,12 +9,14 @@ function Chat() {
         email: "",
     })
 
+    const [chat, setChat] = useState("")
+
     var changeHandler = e => {
         setUser({ ...user, [e.target.name]: e.target.value })
     }
 
     var submitHandler = e => {
-        
+
         e.preventDefault();
     }
 
@@ -26,6 +28,8 @@ function Chat() {
     useEffect(() => {
         socket.on('new-op-1', (data) => {
             console.log(data, "from react")
+            setChat(chat + `\n ${data["msg"]}`)
+            console.log("value of chat", chat);
             // alert(data, "from react")
         })
     })
@@ -53,7 +57,7 @@ function Chat() {
                     <form onSubmit={anotherSubmitHandler}>
                         <div className="form-group">
                             <label for="exampleFormControlTextarea1">Chat Window</label>
-                            <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" value={chat} disabled={true}></textarea>
                         </div>
 
                         <div className="col-md-3" >
