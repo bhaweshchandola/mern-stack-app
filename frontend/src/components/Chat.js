@@ -7,38 +7,47 @@ function Chat() {
     const [user, setUser] = useState({
         name: "",
         email: "",
+        msg: ""
     })
 
-    const [chat, setChat] = useState("")
+    const [chat, setChat] = useState({
+        messages: ""
+    })
 
+    // const [msg1, setMsg] = useState("")
     var changeHandler = e => {
         setUser({ ...user, [e.target.name]: e.target.value })
     }
 
-    var submitHandler = e => {
-
-        e.preventDefault();
-    }
-
     var anotherSubmitHandler = e => {
-        console.log(socket.emit('new-op', { id: "1", msg: "hello" }))
+        let data = { id: "1", msg: `${user.msg} - ${user.name}(${user.email})` }
+        console.log("data to be sent ", data)
+        console.log(socket.emit('new-op', data))
         e.preventDefault();
     }
 
-    useEffect(() => {
+    
         socket.on('new-op-1', (data) => {
             console.log(data, "from react")
-            setChat(chat + `\n ${data["msg"]}`)
-            console.log("value of chat", chat);
-            // alert(data, "from react")
+            console.log("before", chat)
+            let temp = chat.messages + `\n ${data["msg"]}`
+            console.log("temp", temp)
+
+            setChat({...chat, "messages": chat.messages + `\n ${data["msg"]}`})
+            
+            console.log("value of chat after", chat);
         })
-    })
+    
+
+    // var msgHandler = e => {
+    //     setMsg(e.target.val)
+    // }
 
     return (
         <Fragment>
             <div className="container-fluid">
                 <div className="card">
-                    <form onSubmit={submitHandler}>
+                    <form>
                         <div className="col-md-3">
                             <label className="form-label">Name</label>
                             {/* <input type="text" ref={this.inputRef} className="form-control" name="name" value={name} onChange={this.changeHandler} /> */}
@@ -57,9 +66,12 @@ function Chat() {
                     <form onSubmit={anotherSubmitHandler}>
                         <div className="form-group">
                             <label for="exampleFormControlTextarea1">Chat Window</label>
-                            <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" value={chat} disabled={true}></textarea>
+                            <textarea className="form-control" id="exampleFormControlTextarea1" rows="5" value={chat.messages} disabled={true}></textarea>
                         </div>
-
+                        <div className="col-md-3">
+                            
+                            <input type="text" name="msg" className="form-control" value={user.msg} onChange={changeHandler} />
+                        </div>
                         <div className="col-md-3" >
                             <button type="submit" className="btn btn-success">Send</button>
                         </div>
